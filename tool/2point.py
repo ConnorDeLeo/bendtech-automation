@@ -3,6 +3,8 @@ import string
 import time
 from datetime import date
 
+
+
 # Function definitions
 # Encrypt the normal position numbers into Bend-Tech's weird encryption
 def encrypt(num) :
@@ -161,11 +163,13 @@ def addPoint(point) :
     
     return(pointSplit)
 
-# Add a gui soon
-def gui() :
-    return
+# Gui to do gui things
+
 
 # Run
+
+# Run old
+'''
 name = input("Enter project name:")
 
 mat = input("Enter material: ")
@@ -177,3 +181,4 @@ p1 = input("Enter point 1 location in \"X,Y,Z\" format: ")
 p2 = input("Enter point 2 location in \"X,Y,Z\" format: ")
 
 formatter(addPoint(p1), addPoint(p2), mat, die, name)
+'''
