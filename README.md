@@ -12,14 +12,23 @@ When the script is run, you will be prompted for the name of the assembly, the d
 `encryptor.py` is the first iteration of the Bend-Tech encryption system, see `Encryption system` below. Supports up to `3` digits, does not support decimals.
 
 ### `main.py`
-`main.py` is the main iteration of the system. It takes in however many points you require and all of their locations. Does not support decimals. As of `9/4/2023`, `main.py` is in v1.0 and does not have a GUI.
+`main.py` is the main iteration of the system. It takes in however many points you require and all of their locations. Does not support decimals. As of `10/20/2023`, `main.py` is in v1.1 and has a working TKinter based GUI. Only accepts `.csv | Comma Separated Value` filetypes with `3` columns and `1` row for header information. See the `Bend-Tech Automation Test.csv` file or `CSV Format` for a formatting guide. The limit for points has not been tested, and may only stop when there is a lack of memory.
 
 ## File format
 The `.btax` (Bend-Tech assembly) file format is just a plain text file automatically associated with the program.
 
 ## Point format
 The format within the `.btax` files is quite odd.
-All coordinate numbers are encrypted using an extremely simple system (I assume to persuade people not to tamper with their files) shown below in `Encryption system`, and colors are also encrypted.
+All coordinate numbers are encrypted using an extremely simple system (I assume to persuade people not to tamper with their files) shown below in `Encryption system`, colors are also encrypted.
+
+## CSV Format
+All point instruction files in CSV format should contain `3` columns, with a `1` row header. See below for format:
+```
+mat,die,name
+X0,Y0,Z0
+X1,Y1,Z1
+X1,Y2,Z2
+```
 
 ## Encryption system
 ### Points
@@ -47,3 +56,7 @@ v1.0 launched on `9/4/2023` with point features.
 Encryption happens on save of a `.btax` file inside Bend-Tech. The encryption system I wrote is temporarily useless. A possible use is for modifying existing `.btax` files.
 ### `README.md`
 Updated on `9/4/2023` with an explanation of `main.py` and an encryption discovery. Slightly more in depth on `2point.py`.
+### `main.py`
+Updated to v1.1 on `10/20/2023` with a new TKinter based GUI. Accepts only `.csv` filetypes.
+### `README.md`
+Updated on `10/20/2023` with new features in `main.py` and an example of how to write the `.csv` point files.

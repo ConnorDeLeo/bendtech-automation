@@ -1,76 +1,12 @@
-import os
-import string
-import time
 from datetime import date
+import csv
 import tkinter as tk
+from tkinter import ttk
+from tkinter import filedialog as fd
+from tkinter.messagebox import showinfo
 
-# Function definitions
-
-# GUI
-def initializeGUI():
-    gui = tk.Tk()
-
-    gui.geometry("500x250")
-
-    frame = tk.Frame(gui)
-    frame.pack(fill=tk.BOTH, expand=1)
-
-    canvas = tk.Canvas(frame)
-    canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=1)
-
-    scrollbar = tk.Scrollbar(frame, orient=tk.VERTICAL, command=canvas.yview)
-    scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
-
-    canvas.configure(yscrollcommand=scrollbar.set)
-    canvas.bind('<Configure>', lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
-
-    frame2 = tk.Frame(canvas)
-
-    nameLabel = tk.Label(frame2, text="Input project name")
-    nameInput = tk.Text(frame2, height=1, width=50, bg="light cyan")
-
-    dieLabel = tk.Label(frame2, text="Input default die")
-    dieInput = tk.Text(frame2, height=1, width=50, bg="light cyan")
-
-    matLabel = tk.Label(frame2, text="Input default material")
-    matInput = tk.Text(frame2, height=1, width=50, bg="light cyan")
-
-    amountLabel = tk.Label(frame2, text="Input amount of points")
-    amountInput = tk.Text(frame2, height=1, width=50, bg="light cyan")
-
-    amount = amountInput.get("1.0", "end-1c")
-
-    inputs = []
-
-    if amount != "":
-        for a in range(int(amount)):
-            pointLabel = tk.Label(frame2, text=("Input Point " + str(a + 1) + " in X,Y,Z format"))
-            pointInput = tk.Text(frame2, height=1, width=50, bg="light cyan")
-
-            pointLabel.pack()
-            pointInput.pack()
-
-            inputPoint = pointInput.get("1.0", "end-1c")
-
-            inputs.append(inputPoint)
-
-    nameLabel.pack()
-    nameInput.pack()
-    dieLabel.pack()
-    dieInput.pack()
-    matLabel.pack()
-    matInput.pack()
-    amountLabel.pack()
-    amountInput.pack()
-
-    canvas.create_window((0, 0), window=frame2, anchor="nw")
-
-    tk.mainloop()
-
-# Format inputs to the proper .btax format
-def formatter(amount, point, mat, die, name) :
-    # Header template
-    headerTemplate = """Bend-Tech Assembly: DocType:BTF
+# Global Vars
+headerTemplate = """Bend-Tech Assembly: DocType:BTF
 Interface: Assembly
 Version: 7.10.23.0
 Comma Format: False
@@ -111,12 +47,7 @@ Assembly Settings; [35]
  DimTextSize: {5}
  TriStarScale: {4}"""
 
-    # Header formatting
-    mdy = date.today().strftime("%m/%d/%y")
-    header = (((headerTemplate.replace("DATE", mdy)).replace("MAT", mat)).replace("DIE", die)).replace("NAME", name)
-
-    # Points template
-    pointsTemplate = """
+pointsTemplate = """
 PickPoint; [7]
  ID: IDPLACEHOLDER
  Display: True
@@ -126,8 +57,74 @@ PickPoint; [7]
   Y: {}
   Z: {}"""
 
-    # Points string init
-    points = ""
+# Function definitions
+
+# GUI
+def fileOutGui(mat, die, name, points, filename):
+    # Header formatting
+    mdy = date.today().strftime("%m/%d/%y")
+    header = (((headerTemplate.replace("DATE", mdy)).replace("MAT", mat)).replace("DIE", die)).replace("NAME", name)
+
+    # Template array init
+    templates = []
+    pointOut = ""
+
+    for t in range(len(points)):
+        newTemplate = pointsTemplate.format(str(t) + "X", str(t) + "Y", str(t) + "Z")
+        templates.append(newTemplate)
+
+    for p in range(len(points)):
+        templates[p] = ((str(templates[p]).replace((str(p) + "X"), (points[p])[0]))).replace((str(p) + "Y"), (points[p])[1]).replace((str(p) + "Z"), (points[p])[2])
+        pointOut += templates[p]
+
+    # Write final file
+    btax = open(name + ".btax", "a")
+    btax.write(header + pointOut)
+    btax.close()
+
+    showinfo(title="Complete", message=("A new Bend-Tech Project File has been created from the supplied " + str(filename) + "\nPlease check the root directory."))
+
+def fileReader(filename):
+    lines = []
+
+    with open(filename, "r") as handler:
+        reader = csv.reader(handler, delimiter=',')
+        for row in reader:
+            lines.append(row)
+    
+    mat = (lines[0])[0]
+    die = (lines[0])[1]
+    name = (lines[0])[2]
+
+    lines.remove(lines[0])
+
+    points = lines
+
+    fileOutGui(mat, die, name, points, filename)
+
+def selectFile():
+    filetypes = (('Comma Separated Value', '*.csv'), ('All file types', '*.*'))
+
+    filename = fd.askopenfilename(title="Open file", initialdir="/", filetypes=filetypes)
+    
+    fileReader(filename)
+
+def initializeGUI():
+    root = tk.Tk()
+    root.title("Bend-Tech Automation")
+    root.resizable(False, False)
+    root.geometry('500x250')
+
+    openBtn = ttk.Button(root, text="Open Point File", command=selectFile)
+    openBtn.pack(expand=True)
+
+    root.mainloop()
+
+# Format inputs to the proper .btax format
+def formatter(amount, point, mat, die, name):
+    # Header formatting
+    mdy = date.today().strftime("%m/%d/%y")
+    header = (((headerTemplate.replace("DATE", mdy)).replace("MAT", mat)).replace("DIE", die)).replace("NAME", name)
 
     # Template array init
     templates = []
@@ -153,7 +150,7 @@ if __name__ == "__main__":
     gui = input("Use GUI?: Y/n " )
 
     if(gui.lower() == "n"):
-        print("Bend-Tech Automation Tool\nAuthor: Connor De Leo\nVersion 0.1\n")
+        print("Bend-Tech Automation Tool\nAuthor: Connor De Leo\nVersion 1.1\n")
         
         name = input("Please input the project name: ")
 
