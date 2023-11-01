@@ -27,7 +27,7 @@ All point instruction files in CSV format should contain `3` columns, with a `1`
 mat,die,name
 X0,Y0,Z0
 X1,Y1,Z1
-X1,Y2,Z2
+X2,Y2,Z2
 ```
 
 ## Encryption system
