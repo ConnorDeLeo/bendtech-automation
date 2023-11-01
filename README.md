@@ -60,3 +60,5 @@ Updated on `9/4/2023` with an explanation of `main.py` and an encryption discove
 Updated to v1.1 on `10/20/2023` with a new TKinter based GUI. Accepts only `.csv` filetypes.
 ### `README.md`
 Updated on `10/20/2023` with new features in `main.py` and an example of how to write the `.csv` point files.
+### General
+Repository moved to public on `10/31/2023` under the MIT license.
