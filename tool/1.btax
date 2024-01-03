@@ -1,0 +1,95 @@
+Bend-Tech Assembly: DocType:BTF
+Interface: Assembly
+Version: 7.10.23.0
+Comma Format: False
+Assembly Settings; [35]
+ Name: 1
+ DieName: 1
+ MaterialName: 1
+ BackImage: 
+ Date: 01/02/24
+ LastModified: 01/02/24
+ AutoLineMode: True
+ AutoZoom: True
+ DisplayAsCut: True
+ DisplayHelpText: True
+ DisplayThickness: True
+ OverwriteMaster: False
+ PromptNames: False
+ ShowHoleFlags: False
+ DisplayStyle: 0
+ TriStartType: 2
+ Units: 0
+ AutoSave: {7}
+ DimArrowType: {4}
+ DimToleranceDistance: {6}
+ DisplayQuality: {5}
+ PickPointSize: {6}
+ BackColor: -1
+ DimDimColor: -16777216
+ DimExtColor: -16777216
+ DimTextColor: -16777216
+ HelpTextColor: -9868951
+ NewPPColor: -16744448
+ DimArrowLength: {4}
+ DimArrowWidth: {712}
+ DimExtOffset: {3}
+ DimExtStandoff: {3}
+ DimLineWidth: {4}
+ DimTextSize: {5}
+ TriStarScale: {4}
+PickPoint; [7]
+ ID: IDPLACEHOLDER
+ Display: True
+ Color: -16744448
+ Point; 
+  X: 1
+  Y: 1
+  Z: 1Bend-Tech Assembly: DocType:BTF
+Interface: Assembly
+Version: 7.10.23.0
+Comma Format: False
+Assembly Settings; [35]
+ Name: 1
+ DieName: 1
+ MaterialName: 1
+ BackImage: 
+ Date: 01/02/24
+ LastModified: 01/02/24
+ AutoLineMode: True
+ AutoZoom: True
+ DisplayAsCut: True
+ DisplayHelpText: True
+ DisplayThickness: True
+ OverwriteMaster: False
+ PromptNames: False
+ ShowHoleFlags: False
+ DisplayStyle: 0
+ TriStartType: 2
+ Units: 0
+ AutoSave: {7}
+ DimArrowType: {4}
+ DimToleranceDistance: {6}
+ DisplayQuality: {5}
+ PickPointSize: {6}
+ BackColor: -1
+ DimDimColor: -16777216
+ DimExtColor: -16777216
+ DimTextColor: -16777216
+ HelpTextColor: -9868951
+ NewPPColor: -16744448
+ DimArrowLength: {4}
+ DimArrowWidth: {712}
+ DimExtOffset: {3}
+ DimExtStandoff: {3}
+ DimLineWidth: {4}
+ DimTextSize: {5}
+ TriStarScale: {4}
+PickPoint; [7]
+ ID: IDPLACEHOLDER
+ Display: True
+ Color: -16744448
+ Point; 
+  X: 1
+  Y: 1
+  Z: 1

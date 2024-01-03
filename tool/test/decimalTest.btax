@@ -1,0 +1,272 @@
+﻿Bend-Tech Assembly: DocType:BTF
+Interface: Assembly
+Version: 7.10.23.0
+Comma Format: False
+Assembly Settings; [35]
+ Name: decimalTest
+ DieName: 4.0
+ MaterialName: Chromoly
+ BackImage: 
+ Date: 1/2/2024
+ LastModified: 1/2/2024
+ AutoLineMode: True
+ AutoZoom: True
+ DisplayAsCut: True
+ DisplayHelpText: True
+ DisplayThickness: True
+ OverwriteMaster: False
+ PromptNames: False
+ ShowHoleFlags: False
+ DisplayStyle: 0
+ TriStartType: 2
+ Units: 0
+ AutoSave: {7}
+ DimArrowType: {4}
+ DimToleranceDistance: {6}
+ DisplayQuality: {5}
+ PickPointSize: {6}
+ BackColor: -1
+ DimDimColor: -16777216
+ DimExtColor: -16777216
+ DimTextColor: -16777216
+ HelpTextColor: -9868951
+ NewPPColor: -16744448
+ DimArrowLength: {4}
+ DimArrowWidth: {712}
+ DimExtOffset: {3}
+ DimExtStandoff: {3}
+ DimLineWidth: {4}
+ DimTextSize: {5}
+ TriStarScale: {4}
+PickPoint; [7]
+ ID: {3}
+ Display: True
+ Color: -16744448
+ Point; 
+  X: {32102}
+  Y: {3}
+  Z: {3}
+PickPoint; [7]
+ ID: {3}
+ Display: True
+ Color: -16744448
+ Point; 
+  X: {42102}
+  Y: {3}
+  Z: {3}
+PickPoint; [7]
+ ID: {3}
+ Display: True
+ Color: -16744448
+ Point; 
+  X: {52102}
+  Y: {3}
+  Z: {3}
+PickPoint; [7]
+ ID: {3}
+ Display: True
+ Color: -16744448
+ Point; 
+  X: {62102}
+  Y: {3}
+  Z: {3}
+PickPoint; [7]
+ ID: {3}
+ Display: True
+ Color: -16744448
+ Point; 
+  X: {72102}
+  Y: {3}
+  Z: {3}
+PickPoint; [7]
+ ID: {3}
+ Display: True
+ Color: -16744448
+ Point; 
+  X: {82102}
+  Y: {3}
+  Z: {3}
+PickPoint; [7]
+ ID: {3}
+ Display: True
+ Color: -16744448
+ Point; 
+  X: {92102}
+  Y: {3}
+  Z: {3}
+PickPoint; [7]
+ ID: {3}
+ Display: True
+ Color: -16744448
+ Point; 
+  X: {:2102}
+  Y: {3}
+  Z: {3}
+PickPoint; [7]
+ ID: {3}
+ Display: True
+ Color: -16744448
+ Point; 
+  X: {;2102}
+  Y: {3}
+  Z: {3}
+PickPoint; [7]
+ ID: {3}
+ Display: True
+ Color: -16744448
+ Point; 
+  X: {3202}
+  Y: {3}
+  Z: {3}
+PickPoint; [7]
+ ID: {3}
+ Display: True
+ Color: -16744448
+ Point; 
+  X: {4202}
+  Y: {3}
+  Z: {3}
+PickPoint; [7]
+ ID: {3}
+ Display: True
+ Color: -16744448
+ Point; 
+  X: {5202}
+  Y: {3}
+  Z: {3}
+PickPoint; [7]
+ ID: {3}
+ Display: True
+ Color: -16744448
+ Point; 
+  X: {6202}
+  Y: {3}
+  Z: {3}
+PickPoint; [7]
+ ID: {3}
+ Display: True
+ Color: -16744448
+ Point; 
+  X: {7202}
+  Y: {3}
+  Z: {3}
+PickPoint; [7]
+ ID: {3}
+ Display: True
+ Color: -16744448
+ Point; 
+  X: {8202}
+  Y: {3}
+  Z: {3}
+PickPoint; [7]
+ ID: {3}
+ Display: True
+ Color: -16744448
+ Point; 
+  X: {9202}
+  Y: {3}
+  Z: {3}
+PickPoint; [7]
+ ID: {3}
+ Display: True
+ Color: -16744448
+ Point; 
+  X: {9202}
+  Y: {3}
+  Z: {3}
+PickPoint; [7]
+ ID: {3}
+ Display: True
+ Color: -16744448
+ Point; 
+  X: {:202}
+  Y: {3}
+  Z: {3}
+PickPoint; [7]
+ ID: {3}
+ Display: True
+ Color: -16744448
+ Point; 
+  X: {;202}
+  Y: {3}
+  Z: {3}
+PickPoint; [7]
+ ID: {3}
+ Display: True
+ Color: -16744448
+ Point; 
+  X: {;202}
+  Y: {3}
+  Z: {3}
+PickPoint; [7]
+ ID: {3}
+ Display: True
+ Color: -16744448
+ Point; 
+  X: {312}
+  Y: {3}
+  Z: {3}
+PickPoint; [7]
+ ID: {3}
+ Display: True
+ Color: -16744448
+ Point; 
+  X: {412}
+  Y: {3}
+  Z: {3}
+PickPoint; [7]
+ ID: {3}
+ Display: True
+ Color: -16744448
+ Point; 
+  X: {512}
+  Y: {3}
+  Z: {3}
+PickPoint; [7]
+ ID: {3}
+ Display: True
+ Color: -16744448
+ Point; 
+  X: {612}
+  Y: {3}
+  Z: {3}
+PickPoint; [7]
+ ID: {3}
+ Display: True
+ Color: -16744448
+ Point; 
+  X: {712}
+  Y: {3}
+  Z: {3}
+PickPoint; [7]
+ ID: {3}
+ Display: True
+ Color: -16744448
+ Point; 
+  X: {812}
+  Y: {3}
+  Z: {3}
+PickPoint; [7]
+ ID: {3}
+ Display: True
+ Color: -16744448
+ Point; 
+  X: {912}
+  Y: {3}
+  Z: {3}
+PickPoint; [7]
+ ID: {3}
+ Display: True
+ Color: -16744448
+ Point; 
+  X: {:12}
+  Y: {3}
+  Z: {3}
+PickPoint; [7]
+ ID: {3}
+ Display: True
+ Color: -16744448
+ Point; 
+  X: {;12}
+  Y: {3}
+  Z: {3}

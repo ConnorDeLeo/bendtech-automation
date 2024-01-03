@@ -12,7 +12,10 @@ When the script is run, you will be prompted for the name of the assembly, the d
 `encryptor.py` is the first iteration of the Bend-Tech encryption system, see `Encryption system` below. Supports up to `3` digits, does not support decimals.
 
 ### `main.py`
-`main.py` is the main iteration of the system. It takes in however many points you require and all of their locations. Does not support decimals. As of `10/20/2023`, `main.py` is in v1.1 and has a working TKinter based GUI. Only accepts `.csv | Comma Separated Value` filetypes with `3` columns and `1` row for header information. See the `Bend-Tech Automation Test.csv` file or `CSV Format` for a formatting guide. The limit for points has not been tested, and may only stop when there is a lack of memory.
+`main.py` is the main iteration of the system. It takes in however many points you require and all of their locations. Does not support decimals. As of `1/2/2024`, `main.py` is in v1.1.1 and has a working TKinter based GUI. Only accepts `.csv | Comma Separated Value` filetypes with `3` columns and `1` row for header information. See the `Bend-Tech Automation Test.csv` file or `CSV Format` for a formatting guide. The limit for points has not been tested, and may only stop when there is a lack of memory.
+
+### `deci.py`
+`deci.py` is a fork of `main.py` in v0.1 beta as of `1/2/2024`. The system takes in decimals up to `3` places, and outputs them to a `.btax` file with encryption. When opened in Bend-Tech, not all points are visible.
 
 ## File format
 The `.btax` (Bend-Tech assembly) file format is just a plain text file automatically associated with the program.
@@ -62,3 +65,7 @@ Updated to v1.1 on `10/20/2023` with a new TKinter based GUI. Accepts only `.csv
 Updated on `10/20/2023` with new features in `main.py` and an example of how to write the `.csv` point files.
 ### General
 Repository moved to public on `10/31/2023` under the MIT license.
+### `main.py`
+Fixed error where file would not output without UI on `1/2/2024`. Version changed to v1.1.1
+### `deci.py`
+v0.1 beta launched off of `main.py` to test decimal support. Basic support for decimal encryption and intake was added, but has errors on import to Bend-Tech.

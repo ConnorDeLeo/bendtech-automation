@@ -1,5 +1,7 @@
 from datetime import date
 import csv
+import decimal
+
 import tkinter as tk
 from tkinter import ttk
 from tkinter import filedialog as fd
@@ -120,8 +122,101 @@ def initializeGUI():
 
     root.mainloop()
 
+# Encrypt decimal inputs
+def encryptDeci(deci):
+    positive = True
+
+    if (deci < 0):
+        positive = False
+        deci = abs(deci)
+    else:
+        positive = True
+    
+    deciString = (str(deci)).split(".")
+    deciDigits = len(deciString[1])
+
+    if (int(deciString[0]) == 0):
+        if deciDigits == 1:
+            deciPoints = int(deciString[1])
+
+            match deciPoints:
+                case 1:
+                    deci = "312"
+                case 2:
+                    deci = "412"
+                case 3:
+                    deci = "512"
+                case 4:
+                    deci = "612"
+                case 5:
+                    deci = "712"
+                case 6:
+                    deci = "812"
+                case 7:
+                    deci = "912"
+                case 8:
+                    deci = ":12"
+                case 9:
+                    deci = ";12"
+                case _:
+                    exit("Bad digit, exiting. [L161]")
+        elif deciDigits == 2:
+            deciPoints = list(deciString[1])
+
+            match int(deciPoints[1]):
+                case 1:
+                    deci = "3202"
+                case 2:
+                    deci = "4202"
+                case 3:
+                    deci = "5202"
+                case 4:
+                    deci = "6202"
+                case 5:
+                    deci = "7202"
+                case 6:
+                    deci = "8202"
+                case 7:
+                    deci = "9202"
+                case 8:
+                    deci = ":202"
+                case 9:
+                    deci = ";202"
+                case _:
+                    exit("Bad digit, exiting. [L185]")
+        elif deciDigits == 3:
+            deciPoints = list(deciString[1])
+            
+            match int(deciPoints[2]):
+                case 1:
+                    deci = "32102"
+                case 2:
+                    deci = "42102"
+                case 3:
+                    deci = "52102"
+                case 4:
+                    deci = "62102"
+                case 5:
+                    deci = "72102"
+                case 6:
+                    deci = "82102"
+                case 7:
+                    deci = "92102"
+                case 8:
+                    deci = ":2102"
+                case 9:
+                    deci = ";2102"
+                case _:
+                    exit("Bad digit, exiting. [L207]")
+        else:
+            exit("Decimal has too many places! Keep points under three.")
+    else:
+        exit("Decimal not <1, exiting.")
+
+    return deci
+
 # Format inputs to the proper .btax format
-def formatter(amount, points, mat, die, name):
+def formatter(amount, point, mat, die, name):
     # Header formatting
     mdy = date.today().strftime("%m/%d/%y")
     header = (((headerTemplate.replace("DATE", mdy)).replace("MAT", mat)).replace("DIE", die)).replace("NAME", name)
@@ -137,11 +232,39 @@ def formatter(amount, points, mat, die, name):
         templates.append(newTemplate)
 
     for p in range(amount):
-        locs = points[p].split(",")
+        deci1 = (decimal.Decimal(point[p].split(",")[0])).as_tuple().exponent
+        deci2 = (decimal.Decimal(point[p].split(",")[1])).as_tuple().exponent
+        deci3 = (decimal.Decimal(point[p].split(",")[2])).as_tuple().exponent
+        decis = [deci1, deci2, deci3]
 
-        templates[p] = ((str(templates[p]).replace((str(p) + "X"), locs[0]))).replace((str(p) + "Y"), locs[1]).replace((str(p) + "Z"), locs[2])
+        if (decis[0] < 0) or (decis[1] < 0) or (decis[2] < 0):
+            encrypted = ["","",""]
+            locs = point[p].split(",")
 
-        pointsOut += templates[p]
+            if (decis[0] < 0):
+                encrypted[0] = encryptDeci(float(locs[0]))
+            else:
+                encrypted[0] = locs[0]
+            
+            if (decis[1] < 0):
+                encrypted[1] = encryptDeci(float(locs[1]))
+            else:
+                encrypted[1] = locs[1]
+            
+            if (decis[2] < 0):
+                encrypted[2] = encryptDeci(float(locs[2]))
+            else:
+                encrypted[2] = locs[2]
+            
+            templates[p] = ((str(templates[p]).replace((str(p) + "X"), encrypted[0]))).replace((str(p) + "Y"), encrypted[1]).replace((str(p) + "Z"), encrypted[2])
+
+            pointsOut += templates[p]
+        else:
+            locs = point[p].split(",")
+
+            templates[p] = ((str(templates[p]).replace((str(p) + "X"), locs[0]))).replace((str(p) + "Y"), locs[1]).replace((str(p) + "Z"), locs[2])
+
+            pointsOut += templates[p]
 
     # Write final file
     btax = open(name + ".btax", "a")
@@ -170,10 +293,12 @@ if __name__ == "__main__":
             points.append(current)
         
         print("\nPoint selection completed...\n")
+
         print("MAT:" + mat + " DIE:" + die + " NAME:" + name + "\n")
         formatter(amount, points, mat, die, name)
 
         print("File creation successful. Please check root directory.")
+
     elif(gui.lower() == "y"):
         initializeGUI()
     else:
