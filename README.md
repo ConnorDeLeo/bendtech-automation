@@ -1,5 +1,6 @@
 # bendtech-automation
 An automation tool for Bend-Tech.
+**Production has been temporarily suspended due to lack of licensing**
 
 # How it works
 ## Run process
@@ -69,3 +70,5 @@ Repository moved to public on `10/31/2023` under the MIT license.
 Fixed error where file would not output without UI on `1/2/2024`. Version changed to v1.1.1
 ### `deci.py`
 v0.1 beta launched off of `main.py` to test decimal support. Basic support for decimal encryption and intake was added, but has errors on import to Bend-Tech.
+### `README.md`
+Updated on `9/17/2024` to reflect temporary suspension of program development.
